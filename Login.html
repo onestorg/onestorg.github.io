@@ -153,29 +153,14 @@
                         <button class="button button-primary button-winona wow slideInRight" type="submit">Get OTP</button>
                       </div> 
                       <div class="wow-outer"> 
-                        <button class="button button-primary button-winona wow slideInRight" type="submit">Submit</button>
+                        <button class="button button-primary button-winona wow slideInRight" type="submit" onclick="checkOtp()" >Submit</button>
                       </div>
+                       <p id="error" style="color:red; display:none;">Phone number not matched.</p>
                      <!--  <p>or use</p>
                       <div class="wow-outer"><a class="button button-primary-outline button-icon button-icon-left button-winona wow slideInLeft" href="#"><span class="icon novi-icon text-primary mdi mdi-facebook-messenger"></span>Messenger</a></div> 
                     </div> -->
                   </form>
-                  <p id="errorMessage" class="error">Phone number not matched.</p
-  <script>
-    // Simulated OTP check
-    const correctOtp = "123456"; // Example correct OTP
 
-    document.getElementById("contact-otp").addEventListener("submit", function(event) {
-      event.preventDefault();
-      const userOtp = document.getElementById("contact-otp").value;
-
-      if (userOtp !== correctOtp) {
-        document.getElementById("errorMessage").style.display = "block";
-      } else {
-        alert("OTP verified successfully!");
-        document.getElementById("errorMessage").style.display = "none";
-      }
-    });
-  </script>
                 </div>
               </div>
             </div>
@@ -291,5 +276,18 @@
     <!-- Javascript-->
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
+
+   
+
+  <script>
+    function checkOtp() {
+      const contact-otp = document.getElementById('contact-otp').value;
+      if (contact-otp !== '123456') {
+        document.getElementById('error').style.display = 'block';
+      } else {
+        alert('OTP verified!');
+      }
+    }
+  </script>
   </body>
 </html>
