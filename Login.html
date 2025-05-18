@@ -150,8 +150,22 @@
                     </div>
                     <div class="group group-middle">
                       <div class="wow-outer"> 
-                        <button class="button" type="submit" onclick="checkOtp()">Get OTP</button>
+                        <button class="button button-primary button-winona wow slideInRight" type="submit" onclick="checkOtp()">Get OTP</button>
+                        
                         <!-- <button class="button button-primary button-winona wow slideInRight" type="submit" onclick="checkOtp()">Get OTP</button> -->
+
+                           
+
+  <script>
+    function checkOtp() {
+      const contact-otp = document.getElementById('contact-otp').value;
+      if (contact-otp !== '123456') {
+        document.getElementById('error').style.display = 'block';
+      } else {
+        alert('OTP verified!');
+      }
+    }
+  </script>
                       </div> 
                       <div class="wow-outer"> 
                         <button class="button button-primary button-winona wow slideInRight" type="submit" >Submit</button>
@@ -278,17 +292,6 @@
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
 
-   
 
-  <script>
-    function checkOtp() {
-      const contact-otp = document.getElementById('contact-otp').value;
-      if (contact-otp !== '123456') {
-        document.getElementById('error').style.display = 'block';
-      } else {
-        alert('OTP verified!');
-      }
-    }
-  </script>
   </body>
 </html>
