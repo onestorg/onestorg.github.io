@@ -75,8 +75,6 @@
                     </li>
                     <li class="rd-nav-item active"><a class="rd-nav-link" href="contacts.html">Contact Us</a>
                     </li>
-                    <li class="rd-nav-item active"><a class="rd-nav-link" href="Login.html">Login</a>
-                    </li>
                   </ul>
                 </div>
               </div>
@@ -143,7 +141,9 @@
                       </div>
                        <div class="col-md-6 wow-outer">
                         <div class="form-wrap wow fadeSlideInUp">
+                          
                           <label class="form-label-outside" for="contact-otp">Enter OTP</label>
+                          
                           <input class="form-input" id="contact-otp" type="text" name="otp" data-constraints="@Required">
                         </div>
                       </div
@@ -155,11 +155,27 @@
                       <div class="wow-outer"> 
                         <button class="button button-primary button-winona wow slideInRight" type="submit">Submit</button>
                       </div>
- 
                      <!--  <p>or use</p>
                       <div class="wow-outer"><a class="button button-primary-outline button-icon button-icon-left button-winona wow slideInLeft" href="#"><span class="icon novi-icon text-primary mdi mdi-facebook-messenger"></span>Messenger</a></div> 
                     </div> -->
                   </form>
+                  <p id="errorMessage" class="error">Phone number not matched.</p
+  <script>
+    // Simulated OTP check
+    const correctOtp = "123456"; // Example correct OTP
+
+    document.getElementById("contact-otp").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const userOtp = document.getElementById("contact-otp").value;
+
+      if (userOtp !== correctOtp) {
+        document.getElementById("errorMessage").style.display = "block";
+      } else {
+        alert("OTP verified successfully!");
+        document.getElementById("errorMessage").style.display = "none";
+      }
+    });
+  </script>
                 </div>
               </div>
             </div>
