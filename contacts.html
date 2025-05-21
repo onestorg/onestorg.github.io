@@ -1,7 +1,8 @@
+
 <!DOCTYPE html>
 <html class="wide wow-animation" lang="en">
   <head>
-    <title>Contacts</title>
+    <title>Login</title>
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width height=device-height initial-scale=1.0 maximum-scale=1.0 user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -52,11 +53,10 @@
                         </ul>
                       </div>
                     </article>
-                    <article class="unit align-items-center">
-                     <!-- <div class="unit-left"><span class="icon novi-icon icon-md icon-modern mdi mdi-map-marker"></span></div> -->
-                      <div class="unit-body"><a class="link-default" href="Login.html"><b>Client Login</b> </a></div>
-                    </article> 
-                    <!--<a class="button button-gray-bordered button-winona" href="#">Request a call</a> -->
+                    <!-- <article class="unit align-items-center">
+                      <div class="unit-left"><span class="icon novi-icon icon-md icon-modern mdi mdi-map-marker"></span></div>
+                      <!-- <div class="unit-body"><a class="link-default" href="tel:#">Delhi </a></div> -->
+                    </article> <!--<a class="button button-gray-bordered button-winona" href="#">Request a call</a> -->
                   </div>
                 </div>
               </div>
@@ -129,29 +129,11 @@
             <div class="row">
               <div class="col-lg-9 cell-inner">
               <div class="section-lg">
-                <p> Page is UNDER CONSTRUCTION, feel free to call</p>
-                  <h3 class="text-uppercase wow-outer"><span class="wow slideInDown">Happy To Hear From You!</span></h3>
+                  <h3 class="text-uppercase wow-outer"><span class="wow slideInDown">Client Login.</span></h3>
                   <!-- RD Mailform-->
-                 <form class="rd-form rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+                 <form class="rd-form rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="#">
                     <div class="row row-10">
-                      <div class="col-md-6 wow-outer">
-                        <div class="form-wrap wow fadeSlideInUp">
-                          <label class="form-label-outside" for="contact-first-name">First Name</label>
-                          <input class="form-input" id="contact-first-name" type="text" name="name" data-constraints="@Required">
-                        </div>
-                      </div>
-                      <div class="col-md-6 wow-outer">
-                        <div class="form-wrap wow fadeSlideInUp">
-                          <label class="form-label-outside" for="contact-last-name">Last Name</label>
-                          <input class="form-input" id="contact-last-name" type="text" name="name" data-constraints="@Required">
-                        </div>
-                      </div>
-                     <!-- <div class="col-md-6 wow-outer">
-                        <div class="form-wrap wow fadeSlideInUp">
-                          <label class="form-label-outside" for="contact-email">E-mail</label>
-                          <input class="form-input" id="contact-email" type="email" name="email" data-constraints="@Email @Required">
-                        </div>
-                      </div> -->
+                 
                       <div class="col-md-6 wow-outer">
                         <div class="form-wrap wow fadeSlideInUp">
                           <label class="form-label-outside" for="contact-phone">Phone</label>
@@ -159,22 +141,29 @@
                         </div>
                       </div>
                       
-                     <div class="col-12 wow-outer">
+                       <div class="col-md-6 wow-outer">
                         <div class="form-wrap wow fadeSlideInUp">
-                          <label class="form-label-outside" for="contact-message">Your Message</label>
-                          <textarea class="form-input" id="contact-message" name="message" data-constraints="@Required"> </textarea>
+                          
+                          <label class="form-label-outside" for="contact-otp">Enter OTP</label>
+                          
+                          <input class="form-input" id="contact-otp" type="text" name="otp" disabled="">
                         </div>
                       </div>
                     </div>
-                    <div class="group group-middle"> 
+                    <div class="group group-middle">
                       <div class="wow-outer"> 
-                        <button class="button button-primary button-winona wow slideInRight" type="submit">Submit</button>
+                        <button class="button button-primary button-winona wow slideInRight" type="submit" onclick="return checkOtp()">Get OTP</button>
+                        <!-- <button class="button button-primary button-winona wow slideInRight" type="submit" onclick="checkOtp()">Get OTP</button> -->
+                      </div> 
+                      <div class="wow-outer"> 
+                        <button class="button button-primary button-winona wow slideInRight" type="submit" disabled="" >Submit</button>
                       </div>
- 
+                       <p id="error" style="color:red; display:none;">Phone number not matched.</p>
                      <!--  <p>or use</p>
                       <div class="wow-outer"><a class="button button-primary-outline button-icon button-icon-left button-winona wow slideInLeft" href="#"><span class="icon novi-icon text-primary mdi mdi-facebook-messenger"></span>Messenger</a></div> 
                     </div> -->
                   </form>
+
                 </div>
               </div>
             </div>
@@ -290,5 +279,32 @@
     <!-- Javascript-->
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
+
+
   </body>
 </html>
+ <script>
+    function checkOtp() {
+      
+      // const contact-otp = document.getElementById('contact-otp').value;
+      // if (contact-otp !== '123456') {
+      //   document.getElementById('error').style.display = 'block';
+      // } else {
+      //   alert('OTP verified!');
+      // }
+
+      const contactPhone = document.getElementById('contact-phone').value;
+      const errorDiv = document.getElementById('error');
+
+      if (contactPhone === '') {
+        errorDiv.style.display = 'block';
+        errorDiv.innerHTML = 'Enter Registered Phone Number.';
+        return false;
+      }else{
+        errorDiv.style.display = 'block';
+        errorDiv.innerHTML = 'Phone number not matched.';
+        return false;
+      }
+
+    }
+  </script>
