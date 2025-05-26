@@ -2076,8 +2076,8 @@ button {
 
 .button.button-primary:hover, .button.button-primary:active {
 	color: #fff;
-	background-color: #1866B0;
-	border-color: #1866B0;
+	background-color: #4A678D;
+	border-color: #4A678D;
 }
 
 html .button.button-primary-lighten, html .button.button-primary-lighten:focus {
@@ -2088,8 +2088,8 @@ html .button.button-primary-lighten, html .button.button-primary-lighten:focus {
 
 html .button.button-primary-lighten:hover, html .button.button-primary-lighten:active {
 	color: #fff;
-	background-color: #1866B0;
-	border-color: #1866B0;
+	background-color: #4A678D;
+	border-color: #4A678D;
 }
 
 .button-accent-outline, .button-accent-outline:focus {
@@ -8398,7 +8398,7 @@ html [class*='section-'].section-bottom-0 {
 */
 .bg-gray-700 {
 	color: #aeb1be;
-	background-color: #1866B0;
+	background-color: #4A678D;
 }
 
 .bg-gray-700 a {
@@ -9672,7 +9672,7 @@ html.tablet .ui-to-top {
 	position: absolute;
 	left: 0;
 	width: 290px;
-	background: #1866B0;
+	background: #4A678D;
 	z-index: 5;
 }
 
@@ -9775,7 +9775,7 @@ html.tablet .ui-to-top {
 	overflow: hidden;
 	max-width: 700px;
 	width: 100%;
-	background: #1866B0;
+	background: #4A678D;
 }
 
 @media (min-width: 768px) {
@@ -11159,7 +11159,7 @@ html.rd-navbar-fixed-linked .page {
 }
 
 .rd-navbar-corporate.rd-navbar-static.rd-navbar--is-stuck .rd-navbar-main-outer, .rd-navbar-corporate.rd-navbar-static.rd-navbar--is-clone .rd-navbar-main-outer {
-	background: #1866B0;
+	background: #4A678D;
 	box-shadow: 0 5px 10px 0px rgba(20, 20, 28, 0.3);
 }
 
