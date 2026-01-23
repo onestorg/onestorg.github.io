@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRC Tech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #0066cc; /* HRC Tech Blue */
+            --secondary: #0b1c2e; /* Dark Navy */
+            --accent: #00d2ff; /* Tech Bright Cyan */
+            --light: #f4f7f6;  /* HRC Bright Cyan */
+            /* --light: #f4f7f6; /* Tech Bright Cyan */
+            --text: #333;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--secondary);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .btn-nav {
+            background: var(--primary);
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+        }
+        
+        .btn-nav:hover {
+            background: var(--accent);
+            color: var(--secondary) !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary) 0%, #1a3a5a 100%);
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+            margin-right: 15px;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Sections General */
+        section {
+            padding: 80px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #666;
+        }
+
+        /* Services (Development) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-bottom: 4px solid var(--primary);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+        }
+
+        /* Hosting Pricing */
+        .pricing-section {
+            background-color: #eef2f5;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            align-items: center;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .pricing-card.popular {
+            transform: scale(1.05);
+            border: 2px solid var(--primary);
+            z-index: 10;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 3rem;
+            color: var(--secondary);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        .features-list li {
+            margin-bottom: 10px;
+        }
+
+        .features-list li i {
+            color: #2ecc71;
+            margin-right: 10px;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            background: var(--white);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .contact-info, .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-btn {
+            background: var(--secondary);
+            color: var(--white);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: var(--white);
+            padding: 50px 5%;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .social-icons a {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent);
+        }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Add JS toggle for real implementation */
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">HRC <span>Tech</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#hosting">Hosting</a></li>
+            <li><a href="#services">Development</a></li>
+            <li><a href="#contact" class="btn-nav">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Scalable Hosting & <br>Custom Web Solutions</h1>
+            <p>At HRC Tech, we build digital experiences and provide the high-performance infrastructure to power them.</p>
+            <a href="#hosting" class="btn btn-primary">View Hosting Plans</a>
+            <a href="#services" class="btn btn-outline">Web Development</a>
+        </div>
+    </section>
+
+    <section id="hosting" class="pricing-section">
+        <div class="section-title">
+            <h2>Cloud Hosting Packages</h2>
+            <p><B>Fast, secure, and reliable servers for your business.</B></p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Starter</h3>
+                <div class="price">$5<span>/mo</span></div>
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> 1 Website</li>
+                    <li><i class="fas fa-check"></i> 10GB SSD Storage</li>
+                    <li><i class="fas fa-check"></i> Free SSL Certificate</li>
+                    <li><i class="fas fa-check"></i> Daily Support</li>
+                </ul>
+                <a href="#" class="btn btn-outline" style="color:var(--secondary); border-color:var(--secondary)">Choose Plan</a>
+            </div>
+
+            <div class="pricing-card popular">
+                <div style="background:var(--primary); color:white; padding:5px; position:absolute; top:0; left:0; width:100%; border-radius:10px 10px 0 0; font-size:0.8rem;">BEST VALUE</div>
+                <h3 style="margin-top:15px;">Professional</h3>
+                <div class="price">$15<span>/mo</span></div>
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> 5 Websites</li>
+                    <li><i class="fas fa-check"></i> 50GB SSD Storage</li>
+                    <li><i class="fas fa-check"></i> Free Domain (1yr)</li>
+                    <li><i class="fas fa-check"></i> Priority Support</li>
+                </ul>
+                <a href="#" class="btn btn-primary">Choose Plan</a>
+            </div>
+
+            <div class="pricing-card">
+                <h3>Enterprise</h3>
+                <div class="price">$45<span>/mo</span></div>
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> Unlimited Websites</li>
+                    <li><i class="fas fa-check"></i> Unlimited NVMe Storage</li>
+                    <li><i class="fas fa-check"></i> Dedicated IP</li>
+                    <li><i class="fas fa-check"></i> Daily Backups</li>
+                </ul>
+                <a href="#" class="btn btn-outline" style="color:var(--secondary); border-color:var(--secondary)">Choose Plan</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="section-title">
+            <h2>Development Services</h2>
+            <p>Custom code tailored to your specific business needs.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-code"></i>
+                <h3>Custom Web Dev</h3>
+                <p>Tailor-made websites using the latest technologies like React, Node.js, and Python.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-shopping-cart"></i>
+                <h3>E-Commerce</h3>
+                <p>Secure online stores with payment gateway integration and inventory management.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>App Development</h3>
+                <p>Responsive web applications and mobile apps designed for user engagement.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-search"></i>
+                <h3>SEO & Maintenance</h3>
+                <p>Ongoing technical support and optimization to keep you ranking high.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-title">
+            <h2>Get In Touch</h2>
+            <p>Ready to start a project or need hosting help?</p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Contact Info</h3>
+                <p style="margin-bottom:20px;"><B>We are available Mon-Fri | 09:00AM-06:00PM</B> IST for support inquiries.</p>
+                <p><i class="fas fa-envelope" style="color:var(--primary); margin-right:10px;"></i> rahulchaudharyr@gmail.com</p>
+                <p><i class="fas fa-phone" style="color:var(--primary); margin-right:10px;"></i> +91 9999-697-000 | 9868-807-445</p>
+                <p><i class="fas fa-map-marker-alt" style="color:var(--primary); margin-right:10px;"></i> Delhi, India</p>
+            </div>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="5" placeholder="Message or Project Details"></textarea>
+                    </div>
+                    <button type="submit" class="form-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">HRC Tech</div>
+        <!-- <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div> -->
+        <div class="copyright">
+            &copy; 2025 HRC Tech. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
